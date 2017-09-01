@@ -1,0 +1,11 @@
+<?php
+   include "seguridad_sesion.php";
+   $segsesion=new Seguridad_sesion();
+   if ($segsesion->getOperario()==null){
+      header('Location: login.php');
+      exit;
+   }
+   include "usuario.php";
+   $operario=new Usuario();
+   $operario->asignarOperarioAviso($_POST['operario'],$_POST['aviso']);
+?>
